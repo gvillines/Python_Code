@@ -1,0 +1,34 @@
+from pytube import YouTube
+
+def get_videos_by_content_creator(username, max_results=10):
+    base_url = f"https://www.youtube.com/user/{username}/videos"
+    
+    youtube = YouTube(base_url)
+    channel_videos = youtube.video_urls
+
+    videos = []
+    for video_url in channel_videos[:max_results]:
+        video = YouTube(video_url)
+        video_info = {
+            'title': video.title,
+            'url': video_url,
+            'views': video.views,
+            'published_at': video.publish_date,
+        }
+        videos.append(video_info)
+
+    return videos
+
+if __name__ == "__main__":
+    content_creator_username = "Wealthy Expat"
+    max_video_results = 5
+
+    search_results = get_videos_by_content_creator(content_creator_username, max_results=max_video_results)
+
+    print(f"Search results for content creator: {content_creator_username}")
+    for idx, video in enumerate(search_results, start=1):
+        print(f"{idx}. Title: {video['title']}")
+        print(f"   URL: {video['url']}")
+        print(f"   Views: {video['views']}")
+        print(f"   Published At: {video['published_at']}")
+        print("-" * 40)
