@@ -1,4 +1,5 @@
 pip install tweepy
+#install tweepy to begin with
 
 import tweepy
 
@@ -24,3 +25,5 @@ for tweet in tweets:
     print(f"User: {tweet.user.screen_name}")
     print(f"Text: {tweet.text}")
     print("-" * 40)
+
+# currently set up to search based on the term Citizenship by Investment
