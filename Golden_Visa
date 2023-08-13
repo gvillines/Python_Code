@@ -1,0 +1,36 @@
+from youtubesearchpython import VideosSearch
+
+def search_youtube_videos(keywords, max_results=10):
+    videos_search = VideosSearch(keywords, limit=max_results)
+    results = videos_search.result()
+
+    videos = []
+    for video in results['result']:
+        video_info = {
+            'title': video['title'],
+            'url': video['link'],
+            'duration': video['duration'],
+            'views': video['viewCount']['short'],
+            'published_at': video['publishedTime'],
+        }
+        videos.append(video_info)
+
+    return videos
+
+if __name__ == "__main__":
+    search_keywords = "Golden Visa"
+    max_video_results = 5
+
+    search_results = search_youtube_videos(search_keywords, max_results=max_video_results)
+
+    print("Search results for:", search_keywords)
+    for idx, video in enumerate(search_results, start=1):
+        print(f"{idx}. Title: {video['title']}")
+        print(f"   URL: {video['url']}")
+        print(f"   Duration: {video['duration']}")
+        print(f"   Views: {video['views']}")
+        print(f"   Published At: {video['published_at']}")
+        print("-" * 40)
+
+
+
