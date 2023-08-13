@@ -1,0 +1,23 @@
+def calculate_total_wealth(initial_investment, annual_savings, annual_roi, num_years):
+    total_wealth = initial_investment
+    for year in range(1, num_years + 1):
+        total_wealth += annual_savings
+        total_wealth *= (1 + annual_roi / 100)
+    return total_wealth
+
+def main():
+    try:
+        initial_investment = float(input("Enter initial investment: $"))
+        annual_savings = float(input("Enter annual savings: $"))
+        annual_roi = float(input("Enter annual ROI (%): "))
+        num_years = int(input("Enter number of years: "))
+
+        final_wealth = calculate_total_wealth(initial_investment, annual_savings, annual_roi, num_years)
+        print(f"Total wealth after {num_years} years: ${final_wealth:.2f}")
+    except ValueError:
+        print("Invalid input. Please enter numeric values.")
+
+if __name__ == "__main__":
+    main()
+# ROI calculator to track the ROI over a given period of time
+#Python script that calculates the total wealth over a given number of years, considering an initial investment, annual savings, and annual return on investment (ROI)
