@@ -32,3 +32,5 @@ if __name__ == "__main__":
         print(f"   Views: {video['views']}")
         print(f"   Published At: {video['published_at']}")
         print("-" * 40)
+# set up to scrape based on the username that you want to search for
+# in this example I used the content creator the Wealthy Expat 
