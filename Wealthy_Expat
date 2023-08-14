@@ -20,7 +20,7 @@ def get_videos_by_content_creator(username, max_results=10):
     return videos
 
 if __name__ == "__main__":
-    content_creator_username = "XX"
+    content_creator_username = "XXXX"
     max_video_results = 5
 
     search_results = get_videos_by_content_creator(content_creator_username, max_results=max_video_results)
